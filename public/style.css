@@ -1,7 +1,12 @@
 .table td, .table th {
     vertical-align: middle;
+    background-color:lightskyblue;
 }
-h1 {
+
+.table td{
+    background-color: lightgrey;
+}
+h2 {
     color: blue;
 }
 hr {

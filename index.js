@@ -105,7 +105,7 @@ app.set("view engine", "hbs");
 app.set("views", "./views");
 
 //Espacio público del servidor
-app.set(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 //Servimos el cuerpo de la página main.hbs en el contenedor index.hbs
 app.get("/productos/vista", (req, res) => {
