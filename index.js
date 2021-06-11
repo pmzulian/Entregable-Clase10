@@ -112,3 +112,6 @@ app.get("/productos/vista", (req, res) => {
     const todos = nuevosProductos.listarTodos();
     res.render("main", {sugeridosProd: todos, listadoExiste: todos.length})
 })
+
+//Servimos el formulario de ingreso de datos
+app.use("/formulario", express.static("public"));
