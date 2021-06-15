@@ -1,6 +1,5 @@
 const express = require("express");
 const crearProd = require("./productos.js");
-const handlebars = require("express-handlebars");
 
 const app = express();
 
@@ -85,21 +84,8 @@ router.delete("/productos/borrar/:id", (req, res) => {
   }
 });
 
-// app.use("/formulario", express.static("public"));
-
-//Configuramos handlebars
-app.engine(
-  "hbs",
-  handlebars({
-    extname: ".hbs",
-    defaultLayout: "index.hbs",
-    layoutsDir: "./views/layouts",
-    partialsDir: "./views/partials/",
-  })
-);
-
 //Establecemos el motor de plantillas a utilizar
-app.set("view engine", "hbs");
+app.set("view engine", "pug");
 
 //Establecemos el directorio donde se encuentran las plantillas
 app.set("views", "./views");
@@ -107,11 +93,14 @@ app.set("views", "./views");
 //Espacio público del servidor
 app.use(express.static(__dirname + "/public"));
 
-//Servimos el cuerpo de la página main.hbs en el contenedor index.hbs
+app.get("/ejemplo", (req, res) => {
+  res.render("partials/main", { mensaje: "Probando desde Pug JS" });
+})
+
 app.get("/productos/vista", (req, res) => {
     const todos = nuevosProductos.listarTodos();
-    res.render("main", {sugeridosProd: todos, listadoExiste: todos.length})
+    res.render("partials/main.pug", {sugeridosProd: todos, listadoExiste: todos.length})
 })
 
 //Servimos el formulario de ingreso de datos
-app.use("/formulario", express.static("public"));
+// app.use("/formulario", express.static("public"));
