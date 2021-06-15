@@ -102,5 +102,9 @@ app.get("/productos/vista", (req, res) => {
     res.render("partials/main.pug", {productos: todos, listadoExiste: todos.length})
 })
 
+app.get("/formulario", (req, res) => {
+  res.render("layouts/formulario.pug")
+})
+
 //Servimos el formulario de ingreso de datos
 // app.use("/formulario", express.static("public"));
