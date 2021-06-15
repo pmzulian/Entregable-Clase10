@@ -1,14 +1,6 @@
-if listadoExiste 
-table(class="table-responsive")
-    tr
-        th="Nombre"
-        th="Precio"
-        th="Foto"
-    each val in sugeridosProd
-    tr 
-        td= index.title
-        td= index.price 
-        td
-            img(src=index.thumbnail width="50px")
-else  
-    h3(class="alert alert-warning")="No hay productos en la lista"
+          each producto in productos
+                block(class="row border-bottom")
+                    block(class="col-4 p-4") #{producto.title}
+                    block(class="col-4 p-4") #{producto.price}
+                    block(class="col-4 p-4")
+                    img(width="50" src=producto.thumbnail alt="not found")

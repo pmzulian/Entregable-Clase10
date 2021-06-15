@@ -4,13 +4,21 @@ extends ../layouts/layout
 block main
 
     if listadoExiste 
-
-        each producto in productos
-            block(class="row border-bottom")
-                block(class="col-4 p-4") #{producto.title}
-                block(class="col-4 p-4") #{producto.price}
-                block(class="col-4 p-4")
-                img(width="50" src=producto.thumbnail alt="not found")
+        table(class="table")
+            thead
+                tr
+                    th(scope="col")="Nombre producto"
+                    th(scope="col")="Precio"
+                    th(scope="col")="Foto"
+            tbody 
+                each producto in productos
+                    tr 
+                        th(scope="row") #{producto.title}
+                        th(scope="row") #{producto.price}
+                        th(scope="row") 
+                            img(width="50" src=producto.thumbnail alt="not found")
+            
+  
     else 
         h3(class="alert alert-warning" role="alert")="No hay productos en el listado"
 
