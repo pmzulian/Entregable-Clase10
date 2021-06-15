@@ -99,7 +99,7 @@ app.get("/ejemplo", (req, res) => {
 
 app.get("/productos/vista", (req, res) => {
     const todos = nuevosProductos.listarTodos();
-    res.render("partials/main.pug", {sugeridosProd: todos, listadoExiste: todos.length})
+    res.render("partials/main.pug", {productos: todos, listadoExiste: todos.length})
 })
 
 //Servimos el formulario de ingreso de datos

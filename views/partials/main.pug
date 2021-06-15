@@ -5,12 +5,12 @@ block main
 
     if listadoExiste 
 
-        each product in products
+        each producto in productos
             block(class="row border-bottom")
-                block(class="col-4 p-4") #{product.title}
-                block(class="col-4 p-4") #{product.price}
+                block(class="col-4 p-4") #{producto.title}
+                block(class="col-4 p-4") #{producto.price}
                 block(class="col-4 p-4")
-                img(width="50" src=product.thumbnail alt="not found")
+                img(width="50" src=producto.thumbnail alt="not found")
     else 
         h3(class="alert alert-warning" role="alert")="No hay productos en el listado"
 
