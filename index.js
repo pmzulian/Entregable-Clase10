@@ -26,7 +26,8 @@ app.post("/api/productos/guardar", (req, res) => {
     ...req.body,
     id: nuevosProductos.getId(),
   });
-  res.send(req.body);
+  // res.send(req.body);
+  res.redirect("/productos/vista");
 });
 
 app.get("/api/productos/listar", (req, res) => {
