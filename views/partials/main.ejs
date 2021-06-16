@@ -1,0 +1,30 @@
+<%- include('../pages/index') %>
+
+<h2>Listado de productos cargados</h2>
+
+<% if (listadoExiste) { %>
+
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr><th>Nombre</th><th>Precio</th><th>Foto</th></tr>
+        <% sugeridosProd.forEach(function(producto) { %>
+            <tr>
+                <td>
+                    <%= producto.title %> 
+                </td>
+                <td>
+                    AR$<%= producto.price %>
+                </td>
+                <td>
+                    <img src=<%= producto.thumbnail %> alt="" width="50px"> 
+                </td>
+            </tr>
+        <% }) %> 
+            
+        <%  %> 
+    </table>
+<% } else { %>
+    <h3 class="alert alert-warning">No hay productos en en listado</h3>
+</div>
+
+<% } %> 

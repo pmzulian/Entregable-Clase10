@@ -85,21 +85,9 @@ router.delete("/productos/borrar/:id", (req, res) => {
   }
 });
 
-// app.use("/formulario", express.static("public"));
-
-//Configuramos handlebars
-app.engine(
-  "hbs",
-  handlebars({
-    extname: ".hbs",
-    defaultLayout: "index.hbs",
-    layoutsDir: "./views/layouts",
-    partialsDir: "./views/partials/",
-  })
-);
 
 //Establecemos el motor de plantillas a utilizar
-app.set("view engine", "hbs");
+app.set("view engine", "ejs");
 
 //Establecemos el directorio donde se encuentran las plantillas
 app.set("views", "./views");
@@ -110,8 +98,9 @@ app.use(express.static(__dirname + "/public"));
 //Servimos el cuerpo de la página main.hbs en el contenedor index.hbs
 app.get("/productos/vista", (req, res) => {
     const todos = nuevosProductos.listarTodos();
-    res.render("main", {sugeridosProd: todos, listadoExiste: todos.length})
+    res.render("partials/main", {sugeridosProd: todos, listadoExiste: todos.length})
 })
 
-//Servimos el formulario de ingreso de datos
-app.use("/formulario", express.static("public"));
+app.get("/formulario", (req, res) => {
+  res.render("pages/formulario.ejs")
+})
