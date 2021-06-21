@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app
   .listen(puerto, () =>
-    console.log(`Escuchando peticiones puerto localhost${puerto}`)
+    console.log(`Escuchando peticiones puerto localhost:${puerto}`)
   )
   .on("error", (error) => console.log(`Error en servidor ${error}`));
 
